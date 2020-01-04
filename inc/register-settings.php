@@ -29,7 +29,7 @@ function imo_meta_init() {
 
     add_settings_field( 
         'imo_numbers_field', // id
-        'a) ' . esc_html__( 'Choose how many groups of items You need (to target with different type of animation)', 'imoptimal' ), // title
+        'a) ' . esc_html__( 'Choose how many groups of items you need (to target with different type of animation)', 'imoptimal' ), // title
         'imo_numbers_render', // callback function
         'imo_meta_group', // option group
         'imo_numbers_section' // field output section
@@ -78,7 +78,7 @@ function imo_settings_init() {
 
         add_settings_field( 
             'imo_items_' . $i, // id
-            '1. ' . esc_html__( 'Items to animate when they enter screens viewport (use CSS selectors). Separate individual items by commas', 'imoptimal' ),  // title
+            '1. ' . esc_html__( 'Items to animate (use CSS selectors). Separate individual items by commas', 'imoptimal' ),  // title
             'imo_items_render',  // callback function
             'imo_animations_group', // option group
             'imo_animations_group_section_' . $i, // field output section
@@ -122,7 +122,7 @@ function imo_settings_init() {
 
         add_settings_field( 
             'imo_reanimation_'  . $i, 
-            '5. ' . esc_html__('Choose if the animation will be triggered repeatedly every time selected items enter screens viewport', 'imoptimal' ), 
+            '5. ' . esc_html__('Choose if the animation will be triggered repeatedly every time selected items enter screens viewport. There is also an option to trigger animation on hover instead.', 'imoptimal' ), 
             'imo_reanimation_render', 
             'imo_animations_group', 
             'imo_animations_group_section_' . $i,

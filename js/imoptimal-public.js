@@ -32,25 +32,46 @@ jQuery(function($) {
             var window_bottom_position = (window_top_position + window_height);
 
             $.each(animation_items, function() {
-
                 var $element = $(this);
-                var element_height = $element.outerHeight();
-                var element_top_position = $element.offset().top;
-                var element_bottom_position = (element_top_position + element_height);
+                
+                if (imoptimal.imo_reanimation == 2) { // if animation set on hover/click
+                    
+                    $element.mouseover(function() {
+                        $(this).addClass(imoptimal.imo_animation_type)
+                            .addClass(imoptimal.imo_animation_duration)
+                            .addClass(imoptimal.imo_animation_repetition)
+                            .addClass(imoptimal.imo_animation_delay);
+                    })
+                    .mouseout(function() {
+                        $(this).removeClass(imoptimal.imo_animation_type);
+                    });
+                    
+                } else {  // if animation set on entering the viewport
+                    
+                    var element_height = $element.outerHeight();
+                    var element_top_position = $element.offset().top;
+                    var element_bottom_position = (element_top_position + element_height);
 
-                //check to see if this current container is within viewport
-                if ((element_bottom_position >= window_top_position) &&
-                    (element_top_position <= window_bottom_position)) {
-                    $element.addClass(imoptimal.imo_animation_type)
-                        .addClass(imoptimal.imo_animation_duration)
-                        .addClass(imoptimal.imo_animation_repetition)
-                        .addClass(imoptimal.imo_animation_delay);
-                } else {
-                    if (imoptimal.imo_reanimation == 1) {
-                        /* Only if you want continuous animation every time element enters viewport */
-                        $element.removeClass(imoptimal.imo_animation_type);
-                    }
+                    //check to see if this current container is within viewport
+                    if ((element_bottom_position >= window_top_position) &&
+                        (element_top_position <= window_bottom_position)) {
+                        
+                        $element.addClass(imoptimal.imo_animation_type)
+                            .addClass(imoptimal.imo_animation_duration)
+                            .addClass(imoptimal.imo_animation_repetition)
+                            .addClass(imoptimal.imo_animation_delay);
+                        
+                    } else {
+                    
+                        if (imoptimal.imo_reanimation == 1) {
+                            /* Only if you want continuous animation every time element enters viewport */
+                            $element.removeClass(imoptimal.imo_animation_type);
+                        }
+                    
+                    }  
+                    
                 }
+                
             });
         }
 
