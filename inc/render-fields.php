@@ -1,18 +1,28 @@
 <?php
 
 function imo_numbers_render() {
-    $options = get_option( 'imo_meta' ); ?>
+    $options = get_option( 'imo_meta' );
+    if(isset($options['imo_numbers_field'])) {
+        $numbers = $options['imo_numbers_field'];
+    }
+    if ( empty($numbers) ) $numbers = 1;
+?>
 
-<input type="number" name="imo_meta[imo_numbers_field]" value="<?php echo $options['imo_numbers_field'] ?>" min="1" max="100" placeholder="1">
+<input type="number" name="imo_meta[imo_numbers_field]" value="<?php echo $numbers; ?>" min="1" max="100" placeholder="1">
 
 <?php }
 
 function imo_minification_render() {
-    $options = get_option( 'imo_meta' ); ?>
+    $options = get_option( 'imo_meta' );
+    if(isset($options['imo_minification_field'])) {
+        $minification = $options['imo_minification_field'];
+    }
+    if ( empty($minification) ) $minification = 0;
+?>
 
-<select name='imo_meta[imo_minification_field]' value="<?php echo $options['imo_minification_field']; ?>">
-    <option value="0" <?php if($options['imo_minification_field'] == 0): ?>selected<?php endif; ?>><?php esc_html_e('Use regural files (not minified)', 'imoptimal'); ?></option>
-    <option value="1" <?php if($options['imo_minification_field'] == 1): ?>selected<?php endif; ?>><?php esc_html_e('Use minified files', 'imoptimal'); ?></option>
+<select name='imo_meta[imo_minification_field]' value="<?php echo $minification; ?>">
+    <option value="0" <?php if($minification == 0): ?>selected<?php endif; ?>><?php esc_html_e('Use regural files (not minified)', 'imoptimal'); ?></option>
+    <option value="1" <?php if($minification == 1): ?>selected<?php endif; ?>><?php esc_html_e('Use minified files', 'imoptimal'); ?></option>
 </select>
 
 <?php }
@@ -20,15 +30,22 @@ function imo_minification_render() {
 function imo_items_render($args) { 
     $options = get_option( 'imo_settings' );
     $field_items = 'imo_items_' . $args['index'];
+    if(isset($options[$field_items])) {
+        $value = $options[$field_items];
+    }
+    if ( empty($value) ) $value = ' ';
 
-    echo "<textarea class='imo-items' type='text' name='imo_settings[{$field_items}]' placeholder='#id, .class, div'>" . $options[$field_items] . "</textarea>";
+    echo "<textarea class='imo-items' type='text' name='imo_settings[{$field_items}]' placeholder='#id, .class, div'>" . $value . "</textarea>";
 
 }
 
 function imo_animation_type_render($args) {
     $options = get_option( 'imo_settings' );
     $field_type = 'imo_animation_type_' . $args['index'];
-    $value = $options[$field_type];
+    if(isset($options[$field_type])) {
+        $value = $options[$field_type];
+    }
+    if ( empty($value) ) $value = 'bounce';
 
     $attention_seekers = array('bounce', 'flash', 'pulse', 'rubberBand', 'shake', 'swing', 'tada', 'wobble', 'jello', 'heartBeat');
     $bouncing_entrances = array('bounceIn', 'bounceInDown', 'bounceInLeft', 'bounceInRight', 'bounceInUp');
@@ -46,89 +63,89 @@ function imo_animation_type_render($args) {
     $specials = array('hinge', 'jackInTheBox', 'rollIn', 'rollOut');
 
     echo "<div class='flexing'>
-    <select class='imo-animation-type {$args['index']}' name='imo_settings[{$field_type}]' value=" . $options[$field_type] . ">
+    <select class='imo-animation-type {$args['index']}' name='imo_settings[{$field_type}]' value=" . $value . ">
 
     <optgroup label='Attention Seekers'>";
     foreach ($attention_seekers as $animation) {
-        $selected = ($options[$field_type] == $animation) ? 'selected="selected"' : '';
+        $selected = ($value == $animation) ? 'selected="selected"' : '';
         echo "<option value='$animation' $selected>$animation</option>";
     }
     echo "</optgroup>
     <optgroup label='Bouncing Entrances'>";
     foreach ($bouncing_entrances as $animation) {
-        $selected = ($options[$field_type] == $animation) ? 'selected="selected"' : '';
+        $selected = ($value == $animation) ? 'selected="selected"' : '';
         echo "<option value='$animation' $selected>$animation</option>";
     }
     echo "</optgroup>
     <optgroup label='Bouncing Exits'>";
     foreach ($bouncing_exits as $animation) {
-        $selected = ($options[$field_type] == $animation) ? 'selected="selected"' : '';
+        $selected = ($value == $animation) ? 'selected="selected"' : '';
         echo "<option value='$animation' $selected>$animation</option>";
     }
     echo "</optgroup>
     <optgroup label='Fading Entrances'>";
     foreach ($fading_entrances as $animation) {
-        $selected = ($options[$field_type] == $animation) ? 'selected="selected"' : '';
+        $selected = ($value == $animation) ? 'selected="selected"' : '';
         echo "<option value='$animation' $selected>$animation</option>";
     }
     echo "</optgroup>        
     <optgroup label='Fading Exits'>";
     foreach ($fading_exits as $animation) {
-        $selected = ($options[$field_type] == $animation) ? 'selected="selected"' : '';
+        $selected = ($value == $animation) ? 'selected="selected"' : '';
         echo "<option value='$animation' $selected>$animation</option>";
     }
     echo "</optgroup>    
     <optgroup label='Flippers'>";
     foreach ($flippers as $animation) {
-        $selected = ($options[$field_type] == $animation) ? 'selected="selected"' : '';
+        $selected = ($value == $animation) ? 'selected="selected"' : '';
         echo "<option value='$animation' $selected>$animation</option>";
     }
     echo "</optgroup> 
     <optgroup label='Lightspeed'>";
     foreach ($lightspeed as $animation) {
-        $selected = ($options[$field_type] == $animation) ? 'selected="selected"' : '';
+        $selected = ($value == $animation) ? 'selected="selected"' : '';
         echo "<option value='$animation' $selected>$animation</option>";
     }
     echo "</optgroup>    
     <optgroup label='Rotating Entrances'>";
     foreach ($rotating_entrances as $animation) {
-        $selected = ($options[$field_type] == $animation) ? 'selected="selected"' : '';
+        $selected = ($value == $animation) ? 'selected="selected"' : '';
         echo "<option value='$animation' $selected>$animation</option>";
     }
     echo "</optgroup>    
     <optgroup label='Rotating Exits'>";
     foreach ($rotating_exits as $animation) {
-        $selected = ($options[$field_type] == $animation) ? 'selected="selected"' : '';
+        $selected = ($value == $animation) ? 'selected="selected"' : '';
         echo "<option value='$animation' $selected>$animation</option>";
     }
     echo "</optgroup> 
     <optgroup label='Sliding Entrances'>";
     foreach ($sliding_entrances as $animation) {
-        $selected = ($options[$field_type] == $animation) ? 'selected="selected"' : '';
+        $selected = ($value == $animation) ? 'selected="selected"' : '';
         echo "<option value='$animation' $selected>$animation</option>";
     }
     echo "</optgroup>
     <optgroup label='Sliding Exits'>";
     foreach ($sliding_exits as $animation) {
-        $selected = ($options[$field_type] == $animation) ? 'selected="selected"' : '';
+        $selected = ($value == $animation) ? 'selected="selected"' : '';
         echo "<option value='$animation' $selected>$animation</option>";
     }
     echo "</optgroup>
     <optgroup label='Zoom Entrances'>";
     foreach ($zoom_entrances as $animation) {
-        $selected = ($options[$field_type] == $animation) ? 'selected="selected"' : '';
+        $selected = ($value == $animation) ? 'selected="selected"' : '';
         echo "<option value='$animation' $selected>$animation</option>";
     }
     echo "</optgroup>   
     <optgroup label='Zoom Exits'>";
     foreach ($zoom_exits as $animation) {
-        $selected = ($options[$field_type] == $animation) ? 'selected="selected"' : '';
+        $selected = ($value == $animation) ? 'selected="selected"' : '';
         echo "<option value='$animation' $selected>$animation</option>";
     }
     echo "</optgroup>  
     <optgroup label='Specials'>";
     foreach ($specials as $animation) {
-        $selected = ($options[$field_type] == $animation) ? 'selected="selected"' : '';
+        $selected = ($value == $animation) ? 'selected="selected"' : '';
         echo "<option value='$animation' $selected>$animation</option>";
     }
     echo "</optgroup>  
@@ -147,69 +164,101 @@ function imo_animation_type_render($args) {
 function imo_animation_duration_render($args) {
     $options = get_option( 'imo_settings' );
     $field_duration = 'imo_animation_duration_' . $args['index'];
-    $value = $options[$field_duration];
+    if(isset($options[$field_duration])) {
+        $value = $options[$field_duration];
+    }
+    if ( empty($value) ) $value = '0.5';
+    
+    $duration = array();
+    $sec = 's';
 
-    echo "<select name='imo_settings[{$field_duration}]' value=" . $options[$field_duration] . ">
-    <option value='0' " . (($value == 0)? "selected='selected'":"") . ">" . esc_html__('Select duration of animation from the dropdown menu', 'imoptimal') . "</option>
-    <option value='imo-duration-half' " . (($value == 'imo-duration-half')? "selected='selected'":"") . ">0.5 sec</option>
-    <option value='imo-duration-one' " . (($value == 'imo-duration-one')? "selected='selected'":"") . ">1 sec</option>
-    <option value='imo-duration-one-half' " . (($value == 'imo-duration-one-half')? "selected='selected'":"") . ">1.5 sec</option>
-    <option value='imo-duration-two' " . (($value == 'imo-duration-two')? "selected='selected'":"") . ">2 sec</option>
-    <option value='imo-duration-two-half' " . (($value == 'imo-duration-two-half')? "selected='selected'":"") . ">2.5 sec</option>
-    <option value='imo-duration-three' " . (($value == 'imo-duration-three')? "selected='selected'":"") . ">3 sec</option>
-    <option value='imo-duration-three-half' " . (($value == 'imo-duration-three-half')? "selected='selected'":"") . ">3.5 sec</option>
-    <option value='imo-duration-four' " . (($value == 'imo-duration-four')? "selected='selected'":"") . ">4 sec</option>
-    <option value='imo-duration-four-half' " . (($value == 'imo-duration-four-half')? "selected='selected'":"") . ">4.5 sec</option>
-    <option value='imo-duration-five' " . (($value == 'imo-duration-five')? "selected='selected'":"") . ">5 sec</option>
-</select>";
-
+    for($i=0.5; $i<=5; $i += 0.1) {
+        $duration[] = $i . $sec;  
+    }
+    
+    echo "<select name='imo_settings[{$field_duration}]' value=' . $value . '>";
+    foreach ($duration as $selection) {
+        $selected = ($value == $selection) ? 'selected="selected"' : '';
+        echo "<option value='$selection' $selected>$selection</option>";
+    }
+    echo "</select>";
 }
 
 function imo_animation_repetition_render($args) {
     $options = get_option( 'imo_settings' );
     $field_repetition = 'imo_animation_repetition_' . $args['index'];
-    $value = $options[$field_repetition];
+    if(isset($options[$field_repetition])) {
+        $value = $options[$field_repetition];
+    }
+    if ( empty($value) ) $value = '1';
+    
+    $repetition = array();
 
-    echo "<select name='imo_settings[{$field_repetition}]' value=" . $options[$field_repetition] . ">
-    <option value='imo-repetition-one' " . (($value == 'imo-repetition-one')? "selected='selected'":"") . ">" . esc_html__('Once', 'imoptimal') . "</option>
-    <option value='imo-repetition-two' " . (($value == 'imo-repetition-two')? "selected='selected'":"") . ">". esc_html__('Twice', 'imoptimal') . "</option>
-    <option value='imo-repetition-three' " . (($value == 'imo-repetition-three')? "selected='selected'":"") . ">" . esc_html__('Three times', 'imoptimal') . "</option>
-    <option value='imo-repetition-four' " . (($value == 'imo-repetition-four')? "selected='selected'":"") . ">" . esc_html__('Four times', 'imoptimal') . "</option>
-    <option value='imo-repetition-five' " . (($value == 'imo-repetition-five')? "selected='selected'":"") . ">" . esc_html__('Five times', 'imoptimal') . "</option>
-</select>";
-
+    for($i=1; $i<=5; $i++) {
+        $repetition[] = $i;  
+    }
+    array_push($repetition, 'infinite');
+    
+    echo "<select name='imo_settings[{$field_repetition}]' value=' . $value . '>";
+    foreach ($repetition as $selection) {
+        $selected = ($value == $selection) ? 'selected="selected"' : '';
+        echo "<option value='$selection' $selected>$selection</option>";
+    }
+    echo "</select>";
 }
 
-function imo_reanimation_render($args) {
+function imo_animation_timing_render($args) {
     $options = get_option( 'imo_settings' );
-    $field_reanimation = 'imo_reanimation_' . $args['index'];
-    $value = $options[$field_reanimation];
-
-    echo "<select name='imo_settings[{$field_reanimation}]' value=" . $options[$field_reanimation] . ">
-    <option value='0' " . (($value == 0)? "selected='selected'":"") . ">" . esc_html__('False (Do not re-animate)', 'imoptimal') . "</option>
-    <option value='1' " . (($value == 1)? "selected='selected'":"") . ">" . esc_html__('Re-animate when items enter viewport', 'imoptimal') . "</option>
-    <option value='2' " . (($value == 2)? "selected='selected'":"") . ">" . esc_html__('Animate items on hover', 'imoptimal') . "</option>
-</select>";
-
+    $field_timing = 'imo_timing_' . $args['index'];
+    if(isset($options[$field_timing])) {
+        $value = $options[$field_timing];
+    }
+    if ( empty($value) ) $value = 'linear';
+    
+    $timing = array('linear', 'ease', 'ease-in', 'ease-out', 'ease-in-out');
+    
+    echo "<select name='imo_settings[{$field_timing}]' value=' . $value . '>";
+    foreach ($timing as $selection) {
+        $selected = ($value == $selection) ? 'selected="selected"' : '';
+        echo "<option value='$selection' $selected>$selection</option>";
+    }
+    echo "</select>";
 }
 
 function imo_animation_delay_render($args) {
     $options = get_option( 'imo_settings' );
     $field_delay = 'imo_delay_' . $args['index'];
-    $value = $options[$field_delay];
+    if(isset($options[$field_delay])) {
+        $value = $options[$field_delay];
+    }
+    if ( empty($value) ) $value = '0';
+    
+    $delay = array();
+    $sec = 's';
 
-    echo "<select name='imo_settings[{$field_delay}]' value=" . $options[$field_delay] . ">
-    <option value='0' " . (($value == 0)? "selected='selected'":"") . ">" . esc_html__('No delay', 'imoptimal') . "</option>
-    <option value='imo-delay-half' " . (($value == 'imo-delay-half')? "selected='selected'":"") . ">0.5 sec</option>
-    <option value='imo-delay-one' " . (($value == 'imo-delay-one')? "selected='selected'":"") . ">1 sec</option>
-    <option value='imo-delay-one-half' " . (($value == 'imo-delay-one-half')? "selected='selected'":"") . ">1.5 sec</option>
-    <option value='imo-delay-two' " . (($value == 'imo-delay-two')? "selected='selected'":"") . ">2 sec</option>
-    <option value='imo-delay-two-half' " . (($value == 'imo-delay-two-half')? "selected='selected'":"") . ">2.5 sec</option>
-    <option value='imo-delay-three' " . (($value == 'imo-delay-three')? "selected='selected'":"") . ">3 sec</option>
-    <option value='imo-delay-three-half' " . (($value == 'imo-delay-three-half')? "selected='selected'":"") . ">3.5 sec</option>
-    <option value='imo-delay-four' " . (($value == 'imo-delay-four')? "selected='selected'":"") . ">4 sec</option>
-    <option value='imo-delay-four-half' " . (($value == 'imo-delay-four-half')? "selected='selected'":"") . ">4.5 sec</option>
-    <option value='imo-delay-five' " . (($value == 'imo-delay-five')? "selected='selected'":"") . ">5 sec</option>
+    for($i=0; $i<=5; $i+=0.1) {
+        $delay[] = $i . $sec; 
+    }
+    
+    echo "<select name='imo_settings[{$field_delay}]' value=' . $value . '>";
+    foreach ($delay as $selection) {
+        $selected = ($value == $selection) ? 'selected="selected"' : '';
+        echo "<option value='$selection' $selected>$selection</option>";
+    }
+    echo "</select>";
+}
+
+function imo_reanimation_render($args) {
+    $options = get_option( 'imo_settings' );
+    $field_reanimation = 'imo_reanimation_' . $args['index'];
+    if(isset($options[$field_reanimation])) {
+        $value = $options[$field_reanimation];
+    }
+    if ( empty($value) ) $value = '0';
+
+    echo "<select name='imo_settings[{$field_reanimation}]' value=" . $value . ">
+    <option value='0' " . (($value == 0)? "selected='selected'":"") . ">" . esc_html__('False (Do not re-animate)', 'imoptimal') . "</option>
+    <option value='1' " . (($value == 1)? "selected='selected'":"") . ">" . esc_html__('Re-animate when items enter viewport', 'imoptimal') . "</option>
+    <option value='2' " . (($value == 2)? "selected='selected'":"") . ">" . esc_html__('Animate items on hover/touch', 'imoptimal') . "</option>
 </select>";
-
-} ?>
+}?>

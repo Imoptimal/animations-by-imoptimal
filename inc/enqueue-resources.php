@@ -11,8 +11,8 @@ function imo_public_resources() {
     // Passing php option variables into the javascript
     $options_array = get_option('imo_settings');
 
-    // Dividing single array into groups of 5 (based on number of fields)
-    $divided_array = array_chunk($options_array, 6, true);
+    // Dividing single array into groups of 7 (based on number of fields)
+    $divided_array = array_chunk($options_array, 7, true);
 
     // Reset array keys to numbers
     $numeric_array = array_map('array_values', $divided_array);
@@ -37,8 +37,9 @@ function imo_public_resources() {
         '1' => 'imo_animation_type',
         '2' => 'imo_animation_duration',
         '3' => 'imo_animation_repetition',
-        '4' => 'imo_reanimation',
-        '5' => 'imo_animation_delay'
+        '4' => 'imo_animation_timing',
+        '5' => 'imo_animation_delay',
+        '6' => 'imo_reanimation'
     ));
 
     // Reset first level keys to index numbers

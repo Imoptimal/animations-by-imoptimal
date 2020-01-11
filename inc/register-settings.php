@@ -64,7 +64,7 @@ function imo_settings_init() {
     if ( empty($numberChoosen) ) $numberChoosen = 1;
     // Main section loop
     for ($i = 1; $i <= $numberChoosen; $i++) {
-
+    
         add_settings_section(
             'imo_animations_group_section_' . $i, // id
             '<div class="imo-collapsible">
@@ -119,11 +119,11 @@ function imo_settings_init() {
                 'index' => $i,
             )
         );
-
+        
         add_settings_field( 
-            'imo_reanimation_'  . $i, 
-            '5. ' . esc_html__('Choose if the animation will be triggered repeatedly every time selected items enter screens viewport. There is also an option to trigger animation on hover instead.', 'imoptimal' ), 
-            'imo_reanimation_render', 
+            'imo_timing_'  . $i, 
+            '5. ' . esc_html__('Choose the speed curve of the selected animation', 'imoptimal' ), 
+            'imo_animation_timing_render', 
             'imo_animations_group', 
             'imo_animations_group_section_' . $i,
             array( // Args
@@ -135,6 +135,17 @@ function imo_settings_init() {
             'imo_delay_'  . $i, 
             '6. ' . esc_html__('Choose the delay of animation when entering screens viewport', 'imoptimal' ), 
             'imo_animation_delay_render', 
+            'imo_animations_group', 
+            'imo_animations_group_section_' . $i,
+            array( // Args
+                'index' => $i,
+            )
+        );
+        
+        add_settings_field( 
+            'imo_reanimation_'  . $i, 
+            '7. ' . esc_html__('Choose if the animation will be triggered repeatedly every time selected items enter screens viewport. There is also an option to trigger animation on hover instead.', 'imoptimal' ), 
+            'imo_reanimation_render', 
             'imo_animations_group', 
             'imo_animations_group_section_' . $i,
             array( // Args
@@ -181,7 +192,6 @@ function imo_validate_meta( $input ) {
     // Return the array processing any additional functions filtered by this action
     return apply_filters( 'imo_meta', $output, $input );
 }
-
 
 function imo_settings_section_callback() {
 }

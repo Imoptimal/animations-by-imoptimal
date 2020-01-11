@@ -34,19 +34,36 @@ jQuery(function($) {
             $.each(animation_items, function() {
                 var $element = $(this);
                 
-                if (imoptimal.imo_reanimation == 2) { // if animation set on hover/click
-                    
+                if (imoptimal.imo_reanimation == 2) { // if animation set on hover/touch
+                    // Mouse events
                     $element.mouseover(function() {
                         $(this).addClass(imoptimal.imo_animation_type)
-                            .addClass(imoptimal.imo_animation_duration)
-                            .addClass(imoptimal.imo_animation_repetition)
-                            .addClass(imoptimal.imo_animation_delay);
+                            .css({'animation-duration': imoptimal.imo_animation_duration,
+                                      'animation-timing-function': imoptimal.imo_animation_timing,
+                                      'animation-iteration-count': imoptimal.imo_animation_repetition,
+                                      'animation-delay': imoptimal.imo_animation_delay
+                                     });
                     })
                     .mouseout(function() {
                         $(this).removeClass(imoptimal.imo_animation_type);
                     });
+                    // Touch events
+                    var touchInitiate = function() {
+                        $(this).addClass(imoptimal.imo_animation_type)
+                            .css({'animation-duration': imoptimal.imo_animation_duration,
+                                      'animation-timing-function': imoptimal.imo_animation_timing,
+                                      'animation-iteration-count': imoptimal.imo_animation_repetition,
+                                      'animation-delay': imoptimal.imo_animation_delay
+                                     });
+                    };
+                    $element.on('touchstart', touchInitiate)
+						.removeClass(imoptimal.imo_animation_type);
+					$element.on('touchmove', touchInitiate)
+						.removeClass(imoptimal.imo_animation_type);
                     
                 } else {  // if animation set on entering the viewport
+                    
+                    $element.css('visibility', 'hidden');
                     
                     var element_height = $element.outerHeight();
                     var element_top_position = $element.offset().top;
@@ -56,16 +73,20 @@ jQuery(function($) {
                     if ((element_bottom_position >= window_top_position) &&
                         (element_top_position <= window_bottom_position)) {
                         
-                        $element.addClass(imoptimal.imo_animation_type)
-                            .addClass(imoptimal.imo_animation_duration)
-                            .addClass(imoptimal.imo_animation_repetition)
-                            .addClass(imoptimal.imo_animation_delay);
+                        $element.css({'visibility': 'visible',
+                                      'animation-duration': imoptimal.imo_animation_duration,
+                                      'animation-timing-function': imoptimal.imo_animation_timing,
+                                      'animation-iteration-count': imoptimal.imo_animation_repetition,
+                                      'animation-delay': imoptimal.imo_animation_delay
+                                     })
+                            .addClass(imoptimal.imo_animation_type);
                         
                     } else {
                     
                         if (imoptimal.imo_reanimation == 1) {
                             /* Only if you want continuous animation every time element enters viewport */
-                            $element.removeClass(imoptimal.imo_animation_type);
+                            $element.css('visibility', 'hidden').
+                            removeClass(imoptimal.imo_animation_type);
                         }
                     
                     }  
@@ -76,7 +97,7 @@ jQuery(function($) {
         }
 
         function reanimation() { // Trigger reanimation
-            $window.on('scroll resize', debounce(check_if_in_view, 20));
+            $window.on('scroll resize', debounce(check_if_in_view, 10));
             $window.trigger('scroll');
         }
         reanimation();
