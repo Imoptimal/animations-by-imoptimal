@@ -53,7 +53,7 @@ msgid "Add the items you would like to animate either when they enter the screen
 msgstr ""
 
 #: inc/options-page.php:17
-msgid "Select the type of animation for that group of items (check the preview on every selection to see the effect in action)."
+msgid "Select the type of animation for that group of items."
 msgstr ""
 
 #: inc/options-page.php:18
@@ -76,59 +76,63 @@ msgstr ""
 msgid "Choose if the animation will be triggered every time selected items enter screens viewport. There is also an option to trigger animation on hover/tapped on touchscreen instead. Default: false."
 msgstr ""
 
-#: inc/options-page.php:25
+#: inc/options-page.php:23
+msgid "Use the preview button to check all of the choosen options in action."
+msgstr ""
+
+#: inc/options-page.php:26
 msgid "Note: \"Save Meta Options\" button is used to save the number of animation groups and the minification of plugin files, while \"Save Animation Options\" button is used for all of the options inside of every animation group."
 msgstr ""
 
-#: inc/options-page.php:27
+#: inc/options-page.php:28
 msgid "IMPORTANT: Javascript must be turned ON in your browser settings in order for this plugin to work!"
 msgstr ""
 
-#: inc/options-page.php:32
+#: inc/options-page.php:33
 msgid "Meta Options"
 msgstr ""
 
-#: inc/options-page.php:38
+#: inc/options-page.php:39
 msgid "Animation Options"
 msgstr ""
 
-#: inc/options-page.php:53
+#: inc/options-page.php:54
 msgid "Ratings & Reviews"
 msgstr ""
 
-#: inc/options-page.php:55
+#: inc/options-page.php:56
 msgid "If you like this plugin, please consider leaving a"
 msgstr ""
 
-#: inc/options-page.php:57
+#: inc/options-page.php:58
 msgid "rating"
 msgstr ""
 
-#: inc/options-page.php:58
+#: inc/options-page.php:59
 msgid "A huge thanks in advance!"
 msgstr ""
 
-#: inc/options-page.php:60
+#: inc/options-page.php:61
 msgid "Leave us a rating"
 msgstr ""
 
-#: inc/options-page.php:64
+#: inc/options-page.php:65
 msgid "About the plugin"
 msgstr ""
 
-#: inc/options-page.php:65
+#: inc/options-page.php:66
 msgid "Developed by: "
 msgstr ""
 
-#: inc/options-page.php:68
+#: inc/options-page.php:69
 msgid "Need some support?"
 msgstr ""
 
-#: inc/options-page.php:69
+#: inc/options-page.php:70
 msgid "Contact the developers via the Support Forum"
 msgstr ""
 
-#: inc/options-page.php:71
+#: inc/options-page.php:72
 msgid "Contact us"
 msgstr ""
 
@@ -169,7 +173,7 @@ msgid "Choose the delay of animation when entering screens viewport"
 msgstr ""
 
 #: inc/register-settings.php:147
-msgid "Choose if the animation will be triggered repeatedly every time selected items enter screens viewport. There is also an option to trigger animation on hover instead."
+msgid "Choose if the animation will be triggered repeatedly every time selected items enter screens viewport. There is also an option to trigger animation on mouse hover or screen tap instead."
 msgstr ""
 
 #: inc/render-fields.php:24

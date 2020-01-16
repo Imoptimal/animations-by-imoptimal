@@ -14,12 +14,13 @@ function imo_options_page() {
         <li>b) <?php esc_html_e('Choose if the plugin files (styles and scripts) will be loaded in regular or minified version. Default: not minified.', 'imoptimal'); ?></li>
         <li><?php esc_html_e('Open each animation group by clicking on its title bar.', 'imoptimal'); ?></li>
         <li>1. <?php esc_html_e('Add the items you would like to animate either when they enter the screens viewport (visible area of a web page), or when they are hovered on/tapped on touchscreen.', 'imoptimal');?></li>
-        <li>2. <?php esc_html_e('Select the type of animation for that group of items (check the preview on every selection to see the effect in action).', 'imoptimal'); ?></li>
+        <li>2. <?php esc_html_e('Select the type of animation for that group of items.', 'imoptimal'); ?></li>
         <li>3. <?php esc_html_e('Choose the duration of the animation (0.5 - 5 sec; with increments of 0.1 sec).', 'imoptimal'); ?></li>
         <li>4. <?php esc_html_e('Choose the repetition of the animation (1 - 5 times; Infinite is also an option).', 'imoptimal'); ?></li>
         <li>5. <?php esc_html_e('Choose the speed curve of the selected animation. Default: linear.', 'imoptimal'); ?></li>
         <li>6. <?php esc_html_e('Choose the delay duration of animation when entering screens viewport (0.1 - 5 sec; with increments of 0.1 sec). Default: no delay.', 'imoptimal'); ?></li>
         <li>7. <?php esc_html_e('Choose if the animation will be triggered every time selected items enter screens viewport. There is also an option to trigger animation on hover/tapped on touchscreen instead. Default: false.', 'imoptimal'); ?></li>
+        <li><?php esc_html_e('Use the preview button to check all of the choosen options in action.', 'imoptimal'); ?></li>
     </ol>
 
     <p class="note"><?php esc_html_e('Note: "Save Meta Options" button is used to save the number of animation groups and the minification of plugin files, while "Save Animation Options" button is used for all of the options inside of every animation group.', 'imoptimal'); ?></p>

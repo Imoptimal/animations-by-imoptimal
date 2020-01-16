@@ -13,13 +13,14 @@ Make anything on your website animate either when its entering the screens viewp
 
 Key Features:
 * Possibility to set the number of animation groups that you can target with different animation settings (up to 100 groups).
-* Add the items (CSS selectors) you would like to either animate when they enter the screens viewport (visible area of a web page) or when hovered over.
-* Select the type of animation for that group of items (over 70 types, based on the popular CSS library animate.css) - and see the preview on every animation selection.
+* Add the items (CSS selectors) you would like to either animate when they enter the screens viewport (visible area of a web page) or when hovered on/tapped on.
+* Select the type of animation for that group of items (over 70 types, based on the popular CSS library animate.css).
 * Option to select the duration of the animation (0.5 - 5 sec; with increments of 0.1 sec).
 * Option to select the repetition of the animation (1 - 5 times; Infinite is also an option).
 * Option to choose the delay duration of animation when entering screens viewport (0.5 - 5 sec; with increments of 0.1 sec).
 * Option to choose the speed curve of the selected animation.
 * Option to choose if the animation will be triggered every time selected items enter screens viewport (not just once). There is also an option to trigger animation on hover/when tapped on touchscreen instead.
+* Use the preview button to check all of the choosen options in action.
 
 == Installation ==
 
@@ -58,6 +59,9 @@ Added an option to trigger animation on tap (touchscreens), as well as the optio
 
 = 1.3.0 =
 Increased the number of speed and delay options. Removed notices/warnigs also.
+
+= 1.4.0 =
+Added the preview for all options (not just animation type as previously).
 
 == Copyright ==
 

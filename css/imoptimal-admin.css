@@ -218,6 +218,20 @@
     font-weight: bold;
 }
 
+.imo-content .imo-preview span {
+    display: block;
+    background-color: #061228;
+    color: #34ab00;
+    font-weight: bold;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.imo-content .imo-preview span:hover {
+    background-color: #34ab00;
+    color: #061228;
+}
+
 .imo-content .imo-example-area {
     position: relative;
     width: 100px;
@@ -233,10 +247,13 @@
     height: 30px;
     width: 30px;
     background: #34ab00;
-    -webkit-animation-duration: 2.5s;
-    animation-duration: 2.5s;
+    /* default values */
+    -webkit-animation-duration: 0.5s;
+    animation-duration: 0.5s;
     -webkit-animation-iteration-count: 1;
     animation-iteration-count: 1;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
 }
 
 .imo-content #submit {

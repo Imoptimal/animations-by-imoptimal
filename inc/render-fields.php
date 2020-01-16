@@ -33,7 +33,7 @@ function imo_items_render($args) {
     if(isset($options[$field_items])) {
         $value = $options[$field_items];
     }
-    if ( empty($value) ) $value = ' ';
+    if ( empty($value) ) $value = '';
 
     echo "<textarea class='imo-items' type='text' name='imo_settings[{$field_items}]' placeholder='#id, .class, div'>" . $value . "</textarea>";
 
@@ -155,7 +155,7 @@ function imo_animation_type_render($args) {
         <div class='imo-example-area {$args['index']}'>
            <div class='example-block'></div>
         </div>
-        <span>Preview</span>
+        <span class='preview-button'>Preview</span>
     </div>
 
     </div>";
@@ -176,7 +176,7 @@ function imo_animation_duration_render($args) {
         $duration[] = $i . $sec;  
     }
     
-    echo "<select name='imo_settings[{$field_duration}]' value=' . $value . '>";
+    echo "<select class='imo-animation-duration' name='imo_settings[{$field_duration}]' value=' . $value . '>";
     foreach ($duration as $selection) {
         $selected = ($value == $selection) ? 'selected="selected"' : '';
         echo "<option value='$selection' $selected>$selection</option>";
@@ -199,7 +199,7 @@ function imo_animation_repetition_render($args) {
     }
     array_push($repetition, 'infinite');
     
-    echo "<select name='imo_settings[{$field_repetition}]' value=' . $value . '>";
+    echo "<select class='imo-animation-repetition' name='imo_settings[{$field_repetition}]' value=' . $value . '>";
     foreach ($repetition as $selection) {
         $selected = ($value == $selection) ? 'selected="selected"' : '';
         echo "<option value='$selection' $selected>$selection</option>";
@@ -217,7 +217,7 @@ function imo_animation_timing_render($args) {
     
     $timing = array('linear', 'ease', 'ease-in', 'ease-out', 'ease-in-out');
     
-    echo "<select name='imo_settings[{$field_timing}]' value=' . $value . '>";
+    echo "<select class='imo-animation-timing' name='imo_settings[{$field_timing}]' value=' . $value . '>";
     foreach ($timing as $selection) {
         $selected = ($value == $selection) ? 'selected="selected"' : '';
         echo "<option value='$selection' $selected>$selection</option>";
@@ -240,7 +240,7 @@ function imo_animation_delay_render($args) {
         $delay[] = $i . $sec; 
     }
     
-    echo "<select name='imo_settings[{$field_delay}]' value=' . $value . '>";
+    echo "<select class='imo-animation-delay' name='imo_settings[{$field_delay}]' value=' . $value . '>";
     foreach ($delay as $selection) {
         $selected = ($value == $selection) ? 'selected="selected"' : '';
         echo "<option value='$selection' $selected>$selection</option>";

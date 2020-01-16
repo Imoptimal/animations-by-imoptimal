@@ -144,7 +144,7 @@ function imo_settings_init() {
         
         add_settings_field( 
             'imo_reanimation_'  . $i, 
-            '7. ' . esc_html__('Choose if the animation will be triggered repeatedly every time selected items enter screens viewport. There is also an option to trigger animation on hover instead.', 'imoptimal' ), 
+            '7. ' . esc_html__('Choose if the animation will be triggered repeatedly every time selected items enter screens viewport. There is also an option to trigger animation on mouse hover or screen tap instead.', 'imoptimal' ), 
             'imo_reanimation_render', 
             'imo_animations_group', 
             'imo_animations_group_section_' . $i,

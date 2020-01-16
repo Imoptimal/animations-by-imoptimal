@@ -7,7 +7,7 @@ jQuery(function($) {
     var collapsibleElement = document.getElementById('imo-animations').getElementsByClassName('form-table');
     var info = pageId.getElementsByClassName('imo-info');
     var items = pageId.getElementsByClassName('imo-items');
-    var animationType = pageId.getElementsByClassName('imo-animation-type');
+    var animationPreview = pageId.getElementsByClassName('preview-button');
     var i;
 
     instructionsList[0].style.display = "none";
@@ -45,14 +45,45 @@ jQuery(function($) {
             }
         });
 
-        animationType[i].addEventListener("change", function() {
-            // .imo-preview .imo-example-area
-            var exampleArea = this.nextElementSibling.childNodes[1];
-            // selected options value
-            var toggleClass = this.value;
-            // .imo-preview .imo-example-area .example-block
-            // switch class + leave the default one
-            exampleArea.childNodes[1].className = toggleClass + ' example-block';
+        animationPreview[i].addEventListener("click", function() {
+            // tbody .imo-example-area .example-block
+            var exampleBlock = this.parentNode.parentNode.parentNode.parentNode.querySelector('.imo-example-area .example-block');
+            // tbody .imo-animation-type
+            var animationType = this.parentNode.parentNode.parentNode.parentNode.querySelector('.imo-animation-type').value;
+            // tbody .imo-animation-duration
+            var animationDuration = this.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector('.imo-animation-duration').value;
+            // tbody .imo-animation-repetition
+            var animationRepetition = this.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector('.imo-animation-repetition').value;
+            // tbody .imo-animation-timing
+            var animationTiming = this.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector('.imo-animation-timing').value;
+            // tbody .imo-animation-delay
+            var animationDelay = this.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector('.imo-animation-delay').value;
+            // setting the animation properties
+            exampleBlock.style.WebkitAnimationName = animationType;
+            exampleBlock.style.animationName = animationType;
+            exampleBlock.style.WebkitAnimationDuration = animationDuration;
+            exampleBlock.style.animationDuration = animationDuration;
+            exampleBlock.style.WebkitAnimationIterationCount = animationRepetition;
+            exampleBlock.style.animationIterationCount = animationRepetition;
+            exampleBlock.style.WebkitAnimationTimingFunction = animationTiming;
+            exampleBlock.style.animationTimingFunction = animationTiming;
+            exampleBlock.style.WebkitAnimationDelay = animationDelay;
+            exampleBlock.style.animationDelay = animationDelay;
+            // converting text into numbers with decimals
+            var durationTimeout = parseFloat(animationDuration, 10);
+            var delayTimeout = parseFloat(animationDelay, 10);
+            // determine the timeout duration; convert to miliseconds
+            if (animationRepetition !== 'infinite') { // fix the breaking on infinite
+                var overallTimeout = (durationTimeout + delayTimeout) * 1000 * animationRepetition;
+            }
+            else {
+                var overallTimeout = (durationTimeout + delayTimeout) * 1000 * 10;
+            }
+            // Enable re-triggering the same animation without type change
+            setTimeout(function() {
+                exampleBlock.style.animationName = '';
+            }, overallTimeout);
+
         });
 
     }
