@@ -225,6 +225,10 @@
     font-weight: bold;
     padding: 5px;
     margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
 }
 
 .imo-content .imo-preview span:hover {
