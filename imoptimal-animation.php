@@ -10,7 +10,7 @@
    Requires PHP: 5.6
    License: GNU General Public License v3 or later
    License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
-   Text Domain: imoptimal
+   Text Domain: imoptimal_animation
    Domain Path: /lang
    */
 

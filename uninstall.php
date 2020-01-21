@@ -6,8 +6,8 @@ if (!defined('WP_UNINSTALL_PLUGIN')) {
 
 if ( current_user_can( 'delete_plugins' ) ) { // restrict to admins
 
-        $option_meta = 'imo_meta';
-        $option_settings = 'imo_settings';
+        $option_meta = 'imoanim_meta';
+        $option_settings = 'imoanim_settings';
 
         delete_option($option_meta);
         delete_option($option_settings);

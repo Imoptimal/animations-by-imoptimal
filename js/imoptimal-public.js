@@ -23,7 +23,7 @@ jQuery(function($) {
     // Animate elements when they enter viewport
     function animation(imoptimal) {
 
-        var animation_items = $(imoptimal.imo_items);
+        var animation_items = $(imoptimal.imoanim_items);
         var $window = $(window);
 
         function check_if_in_view() {
@@ -34,32 +34,32 @@ jQuery(function($) {
             $.each(animation_items, function() {
                 var $element = $(this);
                 
-                if (imoptimal.imo_reanimation == 2) { // if animation set on hover/touch
+                if (imoptimal.imoanim_reanimation == 2) { // if animation set on hover/touch
                     // Mouse events
                     $element.mouseover(function() {
-                        $(this).addClass(imoptimal.imo_animation_type)
-                            .css({'animation-duration': imoptimal.imo_animation_duration,
-                                      'animation-timing-function': imoptimal.imo_animation_timing,
-                                      'animation-iteration-count': imoptimal.imo_animation_repetition,
-                                      'animation-delay': imoptimal.imo_animation_delay
+                        $(this).addClass(imoptimal.imoanim_animation_type)
+                            .css({'animation-duration': imoptimal.imoanim_animation_duration,
+                                      'animation-timing-function': imoptimal.imoanim_animation_timing,
+                                      'animation-iteration-count': imoptimal.imoanim_animation_repetition,
+                                      'animation-delay': imoptimal.imoanim_animation_delay
                                      });
                     })
                     .mouseout(function() {
-                        $(this).removeClass(imoptimal.imo_animation_type);
+                        $(this).removeClass(imoptimal.imoanim_animation_type);
                     });
                     // Touch events
                     var touchInitiate = function() {
-                        $(this).addClass(imoptimal.imo_animation_type)
-                            .css({'animation-duration': imoptimal.imo_animation_duration,
-                                      'animation-timing-function': imoptimal.imo_animation_timing,
-                                      'animation-iteration-count': imoptimal.imo_animation_repetition,
-                                      'animation-delay': imoptimal.imo_animation_delay
+                        $(this).addClass(imoptimal.imoanim_animation_type)
+                            .css({'animation-duration': imoptimal.imoanim_animation_duration,
+                                      'animation-timing-function': imoptimal.imoanim_animation_timing,
+                                      'animation-iteration-count': imoptimal.imoanim_animation_repetition,
+                                      'animation-delay': imoptimal.imoanim_animation_delay
                                      });
                     };
                     $element.on('touchstart', touchInitiate)
-						.removeClass(imoptimal.imo_animation_type);
+						.removeClass(imoptimal.imoanim_animation_type);
 					$element.on('touchmove', touchInitiate)
-						.removeClass(imoptimal.imo_animation_type);
+						.removeClass(imoptimal.imoanim_animation_type);
                     
                 } else {  // if animation set on entering the viewport
                     
@@ -74,19 +74,19 @@ jQuery(function($) {
                         (element_top_position <= window_bottom_position)) {
                         
                         $element.css({'visibility': 'visible',
-                                      'animation-duration': imoptimal.imo_animation_duration,
-                                      'animation-timing-function': imoptimal.imo_animation_timing,
-                                      'animation-iteration-count': imoptimal.imo_animation_repetition,
-                                      'animation-delay': imoptimal.imo_animation_delay
+                                      'animation-duration': imoptimal.imoanim_animation_duration,
+                                      'animation-timing-function': imoptimal.imoanim_animation_timing,
+                                      'animation-iteration-count': imoptimal.imoanim_animation_repetition,
+                                      'animation-delay': imoptimal.imoanim_animation_delay
                                      })
-                            .addClass(imoptimal.imo_animation_type);
+                            .addClass(imoptimal.imoanim_animation_type);
                         
                     } else {
                     
-                        if (imoptimal.imo_reanimation == 1) {
+                        if (imoptimal.imoanim_reanimation == 1) {
                             /* Only if you want continuous animation every time element enters viewport */
                             $element.css('visibility', 'hidden').
-                            removeClass(imoptimal.imo_animation_type);
+                            removeClass(imoptimal.imoanim_animation_type);
                         }
                     
                     }  
