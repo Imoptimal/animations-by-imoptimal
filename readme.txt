@@ -63,6 +63,9 @@ Increased the number of speed and delay options. Removed notices/warnigs also.
 = 1.4.0 =
 Added the preview for all options (not just animation type as previously).
 
+= 1.5.0 =
+Added the list of resources and licenses.
+
 == Copyright ==
 
 Animations by Imoptimal Plugin, Copyright 2019 Ivan Maljukanovic
@@ -70,3 +73,9 @@ Animations by Imoptimal is distributed under the terms of the GNU GPL
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/gpl-3.0.en.html/>
+
+== Resources ==
+* animate.css 3.7.2, MIT - available @ https://daneden.github.io/animate.css/
+* imoptimal-logo-white.png © 2018 Ivan Maljukanović, CC0 - made by me, not available online apart from the plugins directory /img, and my personal website @ https://imoptimal.com (used as an asset)
+* banner-772x250.png © 2019 Ivan Maljukanović, CC0 - made by me, not available online apart from the plugins official wordpress.org repository (used as an asset)
+* icon.svg © 2019 Ivan Maljukanović, CC0 - made by me, not available online apart from the plugins official wordpress.org repository (used as an asset)
