@@ -15,3 +15,6 @@ Increased the number of speed and delay options. Removed notices/warnigs also.
 
 = 1.4.0 =
 Added the preview for all options (not just animation type as previously).
+
+= 1.5.0 =
+Added the list of resources and licenses.
