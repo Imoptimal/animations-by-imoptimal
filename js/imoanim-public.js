@@ -18,7 +18,7 @@ jQuery(function($) {
     }
 
     var i;
-    var $imoptimalPhp = imoptimalPhp;
+    var $imoanimPhp = imoanimPhp;
 
     // Animate elements when they enter viewport
     function animation(imoptimal) {
@@ -103,9 +103,9 @@ jQuery(function($) {
         reanimation();
     }
 
-    for (i = 0; i < $imoptimalPhp.length; i++) {    
+    for (i = 0; i < $imoanimPhp.length; i++) {    
 
-        animation($imoptimalPhp[i]);
+        animation($imoanimPhp[i]);
 
     }
 

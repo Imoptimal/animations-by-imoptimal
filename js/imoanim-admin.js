@@ -28,9 +28,9 @@ jQuery(function($) {
         collapsibleElement[i].style.display = "none";
 
         if (items[i].innerHTML == "") { // if empty
-            info[i].innerHTML = imoptimalPhp.empty;
+            info[i].innerHTML = imoanimPhp.empty;
         } else {
-            info[i].innerHTML = imoptimalPhp.selected + items[i].innerHTML;
+            info[i].innerHTML = imoanimPhp.selected + items[i].innerHTML;
         }
 
         collapsibleTrigger[i].addEventListener("click", function() {

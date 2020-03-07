@@ -6,8 +6,8 @@ if(!function_exists('imoanim_public_resources')) {
     function imoanim_public_resources() {
         $options = get_option( 'imoanim_settings' );
 
-        wp_register_script('imoptimal-public-script', plugin_dir_url( __FILE__ ) . '../js/imoptimal-public.js', array('jquery'), true);
-        wp_register_script('imoptimal-public-script-min', plugin_dir_url( __FILE__ ) . '../js/imoptimal-public-min.js', array('jquery'), true);
+        wp_register_script('imoanim-public-script', plugin_dir_url( __FILE__ ) . '../js/imoanim-public.js', array('jquery'), true);
+        wp_register_script('imoanim-public-script-min', plugin_dir_url( __FILE__ ) . '../js/imoanim-public-min.js', array('jquery'), true);
 
         // Passing php option variables into the javascript
         $options_array = get_option('imoanim_settings');
@@ -19,21 +19,23 @@ if(!function_exists('imoanim_public_resources')) {
         $numeric_array = array_map('array_values', $divided_array);
 
         // Set up function to change key names in a multidimensional array (all levels)
-        function change_keys($arr, $set) {
-            //$arr => original array
-            //$set => array containing old keys as keys and new keys as values
-            if (is_array($arr) && is_array($set)) {
-                $newArr = array();
-                foreach ($arr as $k => $v) {
-                    $key = array_key_exists( $k, $set) ? $set[$k] : $k;
-                    $newArr[$key] = is_array($v) ? change_keys($v, $set) : $v;
+        if(!function_exists('imoanim_change_keys')) {
+            function imoanim_change_keys($arr, $set) {
+                //$arr => original array
+                //$set => array containing old keys as keys and new keys as values
+                if (is_array($arr) && is_array($set)) {
+                    $newArr = array();
+                    foreach ($arr as $k => $v) {
+                        $key = array_key_exists( $k, $set) ? $set[$k] : $k;
+                        $newArr[$key] = is_array($v) ? imoanim_change_keys($v, $set) : $v;
+                    }
+                    return $newArr;
                 }
-                return $newArr;
+                return $arr;
             }
-            return $arr;
         }
 
-        $renamed_array = change_keys($numeric_array, array(
+        $renamed_array = imoanim_change_keys($numeric_array, array(
             '0' => 'imoanim_items',
             '1' => 'imoanim_animation_type',
             '2' => 'imoanim_animation_duration',
@@ -46,20 +48,20 @@ if(!function_exists('imoanim_public_resources')) {
         // Reset first level keys to index numbers
         $reset_array = array_values($renamed_array);
 
-        wp_localize_script('imoptimal-public-script', 'imoptimalPhp', $reset_array);
-        wp_localize_script('imoptimal-public-script-min', 'imoptimalPhp', $reset_array);
+        wp_localize_script('imoanim-public-script', 'imoanimPhp', $reset_array);
+        wp_localize_script('imoanim-public-script-min', 'imoanimPhp', $reset_array);
 
         $optionsMeta = get_option( 'imoanim_meta' );
 
         if ($optionsMeta['imoanim_minification_field'] == 1) { // if minified selected
 
-            wp_enqueue_script('imoptimal-public-script-min');
-            wp_enqueue_style( 'imoptimal-public-style-min', plugin_dir_url( __FILE__ ) . '../css/imoptimal-public-min.css', array());
+            wp_enqueue_script('imoanim-public-script-min');
+            wp_enqueue_style( 'imoanim-public-style-min', plugin_dir_url( __FILE__ ) . '../css/imoanim-public-min.css', array());
 
         } else { // not minified
 
-            wp_enqueue_script('imoptimal-public-script');
-            wp_enqueue_style( 'imoptimal-public-style', plugin_dir_url( __FILE__ ) . '../css/imoptimal-public.css', array());
+            wp_enqueue_script('imoanim-public-script');
+            wp_enqueue_style( 'imoanim-public-style', plugin_dir_url( __FILE__ ) . '../css/imoanim-public.css', array());
 
         }
 
@@ -78,31 +80,31 @@ if(!function_exists('imoanim_admin_resources')) {
 
         $optionsMeta = get_option( 'imoanim_meta' );
 
-        wp_register_script('imoptimal-admin-script', plugin_dir_url( __FILE__ ) . '../js/imoptimal-admin.js', array('jquery'), true);
-        wp_register_script('imoptimal-admin-script-min', plugin_dir_url( __FILE__ ) . '../js/imoptimal-admin-min.js', array('jquery'), true);
+        wp_register_script('imoanim-admin-script', plugin_dir_url( __FILE__ ) . '../js/imoanim-admin.js', array('jquery'), true);
+        wp_register_script('imoanim-admin-script-min', plugin_dir_url( __FILE__ ) . '../js/imoanim-admin-min.js', array('jquery'), true);
 
         $translateEmpty = esc_html__('No items selected', 'imoptimal_animation');
         $translateSelected = esc_html__('Selected item(s) to be animated: ', 'imoptimal_animation');
 
-        wp_localize_script('imoptimal-admin-script', 'imoptimalPhp', array(
+        wp_localize_script('imoanim-admin-script', 'imoanimPhp', array(
             'empty' => $translateEmpty,
             'selected' => $translateSelected
         ));
 
-        wp_localize_script('imoptimal-admin-script-min', 'imoptimalPhp', array(
+        wp_localize_script('imoanim-admin-script-min', 'imoanimPhp', array(
             'empty' => $translateEmpty,
             'selected' => $translateSelected
         ));
 
         if ($optionsMeta['imoanim_minification_field'] == 1) { // if minified selected
 
-            wp_enqueue_script('imoptimal-admin-script-min');
-            wp_enqueue_style('imoptimal-admin-style-min', plugin_dir_url( __FILE__ ) . '../css/imoptimal-admin-min.css', array());
+            wp_enqueue_script('imoanim-admin-script-min');
+            wp_enqueue_style('imoanim-admin-style-min', plugin_dir_url( __FILE__ ) . '../css/imoanim-admin-min.css', array());
 
         } else { // not minified
 
-            wp_enqueue_script('imoptimal-admin-script');
-            wp_enqueue_style('imoptimal-admin-style', plugin_dir_url( __FILE__ ) . '../css/imoptimal-admin.css', array());
+            wp_enqueue_script('imoanim-admin-script');
+            wp_enqueue_style('imoanim-admin-style', plugin_dir_url( __FILE__ ) . '../css/imoanim-admin.css', array());
 
         }
     }

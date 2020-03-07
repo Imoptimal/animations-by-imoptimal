@@ -20,11 +20,11 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: inc/enqueue-resources.php:84
+#: inc/enqueue-resources.php:86
 msgid "No items selected"
 msgstr ""
 
-#: inc/enqueue-resources.php:85
+#: inc/enqueue-resources.php:87
 msgid "Selected item(s) to be animated: "
 msgstr ""
 
