@@ -21,3 +21,6 @@ Added the list of resources and licenses.
 
 = 1.6.0 =
 Added plugins prefix to all helper functions and asset handlers/files.
+
+= 1.6.5 =
+Handled error if no items selected.
