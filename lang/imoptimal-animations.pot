@@ -1,5 +1,5 @@
-# Copyright (C) 2019 siteorigin-unwind
-# This file is distributed under the same license as the siteorigin-unwind package.
+# Copyright (C) 2019 animations-by-imoptimal
+# This file is distributed under the same license as the animations-by-imoptimal package.
 #, fuzzy
 msgid ""
 msgstr ""
@@ -8,8 +8,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language-Team: Ivan @ imoptimal.com <info@imoptimal.com>\n"
-"Last-Translator: SiteOrigin <support@siteorigin.com>\n"
-"Report-Msgid-Bugs-To: http://www.siteorigin.com\n"
+"Last-Translator: imoptimal <info@imoptimal.com>\n"
+"Report-Msgid-Bugs-To: https://www.imoptimal.com\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SourceCharset: UTF-8\n"

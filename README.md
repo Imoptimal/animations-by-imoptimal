@@ -24,3 +24,6 @@ Added plugins prefix to all helper functions and asset handlers/files.
 
 = 1.6.5 =
 Handled error if no items selected.
+
+= 1.7.0 =
+Changed the translation pot file meta info.
