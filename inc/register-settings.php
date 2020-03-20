@@ -194,7 +194,7 @@ if(!function_exists('imoanim_validate_meta')) {
             if( isset( $input[$key] ) ) {
 
                 // Strip all HTML and PHP tags and properly handle quoted strings
-                $output[$key] = sanitize_textarea_field( $input[ $key ] );
+                $output[$key] = sanitize_text_field( $input[ $key ] );
 
             } // end if
         } // end foreach

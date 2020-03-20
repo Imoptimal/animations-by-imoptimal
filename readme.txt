@@ -75,6 +75,9 @@ Handled error if no items selected.
 = 1.7.0 =
 Changed the translation pot file meta info.
 
+= 1.7.1 =
+Updated the sanitization of user input in the meta section.
+
 == Copyright ==
 
 Animations by Imoptimal Plugin, Copyright 2019 Ivan Maljukanovic
