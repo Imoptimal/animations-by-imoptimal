@@ -52,7 +52,7 @@ if(!function_exists('imoanim_public_resources')) {
         wp_localize_script('imoanim-public-script-min', 'imoanimPhp', $reset_array);
         
         $defaults = array(
-            'imoanim_minification_field'   => '1',
+            'imoanim_minification_field'   => '0',
         );
         $options = wp_parse_args( get_option( 'imoanim_meta', $defaults), $defaults );
         $optionsMeta = $options['imoanim_minification_field'];
@@ -83,7 +83,7 @@ if(!function_exists('imoanim_admin_resources')) {
         }
 
         $defaults = array(
-            'imoanim_minification_field'   => '1',
+            'imoanim_minification_field'   => '0',
         );
         $options = wp_parse_args( get_option( 'imoanim_meta', $defaults), $defaults );
         $optionsMeta = $options['imoanim_minification_field'];

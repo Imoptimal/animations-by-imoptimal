@@ -9,7 +9,7 @@ if(!function_exists('imoanim_numbers_render')) {
         $numbers = $options['imoanim_numbers_field'];
 ?>
 
-<input type="number" name="imoanim_meta[imoanim_numbers_field]" value="<?php echo $value; ?>" min="1" max="100" placeholder="1">
+<input type="number" name="imoanim_meta[imoanim_numbers_field]" value="<?php echo $numbers; ?>" min="1" max="100" placeholder="1">
 <?php }
 }
 
