@@ -78,6 +78,9 @@ Changed the translation pot file meta info.
 = 1.7.1 =
 Updated the sanitization of user input in the meta section.
 
+= 1.7.2 =
+Set the default plugin values upon activation.
+
 == Copyright ==
 
 Animations by Imoptimal Plugin, Copyright 2019 Ivan Maljukanovic

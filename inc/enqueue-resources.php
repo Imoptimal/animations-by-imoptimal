@@ -4,13 +4,13 @@ add_action('wp_enqueue_scripts', 'imoanim_public_resources');
 
 if(!function_exists('imoanim_public_resources')) {
     function imoanim_public_resources() {
-        $options = get_option( 'imoanim_settings' );
 
         wp_register_script('imoanim-public-script', plugin_dir_url( __FILE__ ) . '../js/imoanim-public.js', array('jquery'), true);
         wp_register_script('imoanim-public-script-min', plugin_dir_url( __FILE__ ) . '../js/imoanim-public-min.js', array('jquery'), true);
-
+        
         // Passing php option variables into the javascript
-        $options_array = get_option('imoanim_settings');
+        $defaultEmptyArray = array();
+        $options_array =  wp_parse_args( get_option( 'imoanim_settings', $defaultEmptyArray), $defaultEmptyArray );
 
         // Dividing single array into groups of 7 (based on number of fields)
         $divided_array = array_chunk($options_array, 7, true);
@@ -50,10 +50,14 @@ if(!function_exists('imoanim_public_resources')) {
 
         wp_localize_script('imoanim-public-script', 'imoanimPhp', $reset_array);
         wp_localize_script('imoanim-public-script-min', 'imoanimPhp', $reset_array);
+        
+        $defaults = array(
+            'imoanim_minification_field'   => '1',
+        );
+        $options = wp_parse_args( get_option( 'imoanim_meta', $defaults), $defaults );
+        $optionsMeta = $options['imoanim_minification_field'];
 
-        $optionsMeta = get_option( 'imoanim_meta' );
-
-        if ($optionsMeta['imoanim_minification_field'] == 1) { // if minified selected
+        if ($optionsMeta == 1) { // if minified selected
 
             wp_enqueue_script('imoanim-public-script-min');
             wp_enqueue_style( 'imoanim-public-style-min', plugin_dir_url( __FILE__ ) . '../css/imoanim-public-min.css', array());
@@ -78,7 +82,11 @@ if(!function_exists('imoanim_admin_resources')) {
             return;
         }
 
-        $optionsMeta = get_option( 'imoanim_meta' );
+        $defaults = array(
+            'imoanim_minification_field'   => '1',
+        );
+        $options = wp_parse_args( get_option( 'imoanim_meta', $defaults), $defaults );
+        $optionsMeta = $options['imoanim_minification_field'];
 
         wp_register_script('imoanim-admin-script', plugin_dir_url( __FILE__ ) . '../js/imoanim-admin.js', array('jquery'), true);
         wp_register_script('imoanim-admin-script-min', plugin_dir_url( __FILE__ ) . '../js/imoanim-admin-min.js', array('jquery'), true);
@@ -95,8 +103,8 @@ if(!function_exists('imoanim_admin_resources')) {
             'empty' => $translateEmpty,
             'selected' => $translateSelected
         ));
-
-        if ($optionsMeta['imoanim_minification_field'] == 1) { // if minified selected
+        
+        if ($optionsMeta == 1) { // if minified selected
 
             wp_enqueue_script('imoanim-admin-script-min');
             wp_enqueue_style('imoanim-admin-style-min', plugin_dir_url( __FILE__ ) . '../css/imoanim-admin-min.css', array());

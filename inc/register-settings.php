@@ -3,6 +3,20 @@ add_action( 'admin_menu', 'imoanim_add_admin_menu' );
 add_action( 'admin_init', 'imoanim_meta_init' );
 add_action( 'admin_init', 'imoanim_settings_init' );
 
+function write_here_activation_actions(){
+    do_action( 'wp_writehere_extension_activation' );
+}
+register_activation_hook( __FILE__, 'write_here_activation_actions' );
+// Set default values here
+function write_here_default_options(){
+    $default = array(
+        'imoanim_numbers_field'     => 1,
+        'imoanim_minification_field'   => 0
+    );
+    update_option( 'imoanim_meta', $default );
+}
+add_action( 'wp_writehere_extension_activation', 'write_here_default_options' );
+
 if(!function_exists('imoanim_add_admin_menu')) {
     function imoanim_add_admin_menu() {
 
@@ -52,7 +66,6 @@ if(!function_exists('imoanim_meta_init')) {
             'imoanim_meta_group',
             'imoanim_minification_section'
         );
-
     }
 }
 
@@ -64,9 +77,11 @@ if(!function_exists('imoanim_settings_init')) {
                          'imoanim_validate_settings' // validate function
                         );
 
-        $options = get_option( 'imoanim_meta' );
+        $defaults = array(
+            'imoanim_numbers_field'   => '1',
+        );
+        $options = wp_parse_args( get_option( 'imoanim_meta', $defaults), $defaults );
         $numberChoosen = $options['imoanim_numbers_field'];
-        if ( empty($numberChoosen) ) $numberChoosen = 1;
         // Main section loop
         for ($i = 1; $i <= $numberChoosen; $i++) {
 
@@ -194,7 +209,7 @@ if(!function_exists('imoanim_validate_meta')) {
             if( isset( $input[$key] ) ) {
 
                 // Strip all HTML and PHP tags and properly handle quoted strings
-                $output[$key] = sanitize_text_field( $input[ $key ] );
+                $output[$key] = sanitize_textarea_field( $input[ $key ] );
 
             } // end if
         } // end foreach

@@ -1,24 +1,26 @@
 <?php
 if(!function_exists('imoanim_numbers_render')) {
     function imoanim_numbers_render() {
-        $options = get_option( 'imoanim_meta' );
-        if(isset($options['imoanim_numbers_field'])) {
-            $numbers = $options['imoanim_numbers_field'];
-        }
-        if ( empty($numbers) ) $numbers = 1;
+
+        $defaults = array(
+            'imoanim_numbers_field'   => '1',
+        );
+        $options = wp_parse_args( get_option( 'imoanim_meta', $defaults), $defaults );
+        $numbers = $options['imoanim_numbers_field'];
 ?>
 
-<input type="number" name="imoanim_meta[imoanim_numbers_field]" value="<?php echo $numbers; ?>" min="1" max="100" placeholder="1">
+<input type="number" name="imoanim_meta[imoanim_numbers_field]" value="<?php echo $value; ?>" min="1" max="100" placeholder="1">
 <?php }
 }
 
 if(!function_exists('imoanim_minification_render')) {
     function imoanim_minification_render() {
-        $options = get_option( 'imoanim_meta' );
-        if(isset($options['imoanim_minification_field'])) {
-            $minification = $options['imoanim_minification_field'];
-        }
-        if ( empty($minification) ) $minification = 0;
+
+        $defaults = array(
+            'imoanim_minification_field'   => '0',
+        );
+        $options = wp_parse_args( get_option( 'imoanim_meta', $defaults), $defaults );
+        $minification = $options['imoanim_minification_field'];
 ?>
 
 <select name='imoanim_meta[imoanim_minification_field]' value="<?php echo $minification; ?>">
@@ -29,13 +31,14 @@ if(!function_exists('imoanim_minification_render')) {
 }
 
 if(!function_exists('imoanim_items_render')) {
-    function imoanim_items_render($args) { 
-        $options = get_option( 'imoanim_settings' );
+    function imoanim_items_render($args) {
+        
         $field_items = 'imoanim_items_' . $args['index'];
-        if(isset($options[$field_items])) {
-            $value = $options[$field_items];
-        }
-        if ( empty($value) ) $value = '';
+        $defaults = array(
+            $field_items   => '',
+        );
+        $options = wp_parse_args( get_option( 'imoanim_settings', $defaults), $defaults );
+        $value = $options[$field_items];
 
         echo "<textarea class='imo-items' type='text' name='imoanim_settings[{$field_items}]' placeholder='#id, .class, div'>" . $value . "</textarea>";
 
@@ -44,12 +47,13 @@ if(!function_exists('imoanim_items_render')) {
 
 if(!function_exists('imoanim_animation_type_render')) {
     function imoanim_animation_type_render($args) {
-        $options = get_option( 'imoanim_settings' );
+        
         $field_type = 'imoanim_animation_type_' . $args['index'];
-        if(isset($options[$field_type])) {
-            $value = $options[$field_type];
-        }
-        if ( empty($value) ) $value = 'bounce';
+        $defaults = array(
+            $field_type   => 'bounce',
+        );
+        $options = wp_parse_args( get_option( 'imoanim_settings', $defaults), $defaults );
+        $value = $options[$field_type];
 
         $attention_seekers = array('bounce', 'flash', 'pulse', 'rubberBand', 'shake', 'swing', 'tada', 'wobble', 'jello', 'heartBeat');
         $bouncing_entrances = array('bounceIn', 'bounceInDown', 'bounceInLeft', 'bounceInRight', 'bounceInUp');
@@ -168,13 +172,13 @@ if(!function_exists('imoanim_animation_type_render')) {
 
 if(!function_exists('imoanim_animation_duration_render')) {
     function imoanim_animation_duration_render($args) {
-        $options = get_option( 'imoanim_settings' );
+        
         $field_duration = 'imoanim_animation_duration_' . $args['index'];
-        if(isset($options[$field_duration])) {
-            $value = $options[$field_duration];
-        }
-        if ( empty($value) ) $value = '0.5';
-
+        $defaults = array(
+            $field_duration   => '0.5',
+        );
+        $options = wp_parse_args( get_option( 'imoanim_settings', $defaults), $defaults );
+        $value = $options[$field_duration];
         $duration = array();
         $sec = 's';
 
@@ -193,13 +197,13 @@ if(!function_exists('imoanim_animation_duration_render')) {
 
 if(!function_exists('imoanim_animation_repetition_render')) {
     function imoanim_animation_repetition_render($args) {
-        $options = get_option( 'imoanim_settings' );
+        
         $field_repetition = 'imoanim_animation_repetition_' . $args['index'];
-        if(isset($options[$field_repetition])) {
-            $value = $options[$field_repetition];
-        }
-        if ( empty($value) ) $value = '1';
-
+        $defaults = array(
+            $field_repetition   => '1',
+        );
+        $options = wp_parse_args( get_option( 'imoanim_settings', $defaults), $defaults );
+        $value = $options[$field_repetition];
         $repetition = array();
 
         for($i=1; $i<=5; $i++) {
@@ -218,13 +222,13 @@ if(!function_exists('imoanim_animation_repetition_render')) {
 
 if(!function_exists('imoanim_animation_timing_render')) {
     function imoanim_animation_timing_render($args) {
-        $options = get_option( 'imoanim_settings' );
+        
         $field_timing = 'imoanim_timing_' . $args['index'];
-        if(isset($options[$field_timing])) {
-            $value = $options[$field_timing];
-        }
-        if ( empty($value) ) $value = 'linear';
-
+        $defaults = array(
+            $field_timing   => 'linear',
+        );
+        $options = wp_parse_args( get_option( 'imoanim_settings', $defaults), $defaults );
+        $value = $options[$field_timing];
         $timing = array('linear', 'ease', 'ease-in', 'ease-out', 'ease-in-out');
 
         echo "<select class='imo-animation-timing' name='imoanim_settings[{$field_timing}]' value=' . $value . '>";
@@ -238,13 +242,13 @@ if(!function_exists('imoanim_animation_timing_render')) {
 
 if(!function_exists('imoanim_animation_delay_render')) {
     function imoanim_animation_delay_render($args) {
-        $options = get_option( 'imoanim_settings' );
+        
         $field_delay = 'imoanim_delay_' . $args['index'];
-        if(isset($options[$field_delay])) {
-            $value = $options[$field_delay];
-        }
-        if ( empty($value) ) $value = '0';
-
+        $defaults = array(
+            $field_delay   => '0',
+        );
+        $options = wp_parse_args( get_option( 'imoanim_settings', $defaults), $defaults );
+        $value = $options[$field_delay];
         $delay = array();
         $sec = 's';
 
@@ -263,12 +267,13 @@ if(!function_exists('imoanim_animation_delay_render')) {
 
 if(!function_exists('imoanim_reanimation_render')) {
     function imoanim_reanimation_render($args) {
-        $options = get_option( 'imoanim_settings' );
+        
         $field_reanimation = 'imoanim_reanimation_' . $args['index'];
-        if(isset($options[$field_reanimation])) {
-            $value = $options[$field_reanimation];
-        }
-        if ( empty($value) ) $value = '0';
+        $defaults = array(
+            $field_reanimation   => '0',
+        );
+        $options = wp_parse_args( get_option( 'imoanim_settings', $defaults), $defaults );
+        $value = $options[$field_reanimation];
 
         echo "<select name='imoanim_settings[{$field_reanimation}]' value=" . $value . ">
     <option value='0' " . (($value == 0)? "selected='selected'":"") . ">" . esc_html__('False (Do not re-animate)', 'imoptimal_animation') . "</option>
