@@ -20,11 +20,11 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: inc/enqueue-resources.php:86
+#: inc/enqueue-resources.php:94
 msgid "No items selected"
 msgstr ""
 
-#: inc/enqueue-resources.php:87
+#: inc/enqueue-resources.php:95
 msgid "Selected item(s) to be animated: "
 msgstr ""
 
@@ -92,106 +92,106 @@ msgstr ""
 msgid "Meta Options"
 msgstr ""
 
-#: inc/options-page.php:40
+#: inc/options-page.php:41
 msgid "Animation Options"
 msgstr ""
 
-#: inc/options-page.php:55
+#: inc/options-page.php:57
 msgid "Ratings & Reviews"
 msgstr ""
 
-#: inc/options-page.php:57
+#: inc/options-page.php:59
 msgid "If you like this plugin, please consider leaving a"
 msgstr ""
 
-#: inc/options-page.php:59
+#: inc/options-page.php:61
 msgid "rating"
 msgstr ""
 
-#: inc/options-page.php:60
+#: inc/options-page.php:62
 msgid "A huge thanks in advance!"
 msgstr ""
 
-#: inc/options-page.php:62
+#: inc/options-page.php:64
 msgid "Leave us a rating"
 msgstr ""
 
-#: inc/options-page.php:66
+#: inc/options-page.php:68
 msgid "About the plugin"
 msgstr ""
 
-#: inc/options-page.php:67
+#: inc/options-page.php:69
 msgid "Developed by: "
 msgstr ""
 
-#: inc/options-page.php:70
+#: inc/options-page.php:72
 msgid "Need some support?"
 msgstr ""
 
-#: inc/options-page.php:71
+#: inc/options-page.php:73
 msgid "Contact the developers via the Support Forum"
 msgstr ""
 
-#: inc/options-page.php:73
+#: inc/options-page.php:75
 msgid "Contact us"
 msgstr ""
 
-#: inc/register-settings.php:35
+#: inc/register-settings.php:49
 msgid "Choose how many groups of items you need (to target with different type of animation)"
 msgstr ""
 
-#: inc/register-settings.php:50
+#: inc/register-settings.php:64
 msgid "Choose if the plugin files (styles and scripts) will be loaded in regular or minified version"
 msgstr ""
 
-#: inc/register-settings.php:76
+#: inc/register-settings.php:91
 msgid "Animation Group"
 msgstr ""
 
-#: inc/register-settings.php:86
+#: inc/register-settings.php:101
 msgid "Items to animate (use CSS selectors). Separate individual items by commas"
 msgstr ""
 
-#: inc/register-settings.php:97
+#: inc/register-settings.php:112
 msgid "Select the animation type"
 msgstr ""
 
-#: inc/register-settings.php:108
+#: inc/register-settings.php:123
 msgid "Choose the duration of the animation"
 msgstr ""
 
-#: inc/register-settings.php:119
+#: inc/register-settings.php:134
 msgid "Choose the repetition count of the animation"
 msgstr ""
 
-#: inc/register-settings.php:130
+#: inc/register-settings.php:145
 msgid "Choose the speed curve of the selected animation"
 msgstr ""
 
-#: inc/register-settings.php:141
+#: inc/register-settings.php:156
 msgid "Choose the delay of animation when entering screens viewport"
 msgstr ""
 
-#: inc/register-settings.php:152
+#: inc/register-settings.php:167
 msgid "Choose if the animation will be triggered repeatedly every time selected items enter screens viewport. There is also an option to trigger animation on mouse hover or screen tap instead."
 msgstr ""
 
-#: inc/render-fields.php:25
+#: inc/render-fields.php:27
 msgid "Use regural files (not minified)"
 msgstr ""
 
-#: inc/render-fields.php:26
+#: inc/render-fields.php:28
 msgid "Use minified files"
 msgstr ""
 
-#: inc/render-fields.php:274
+#: inc/render-fields.php:279
 msgid "False (Do not re-animate)"
 msgstr ""
 
-#: inc/render-fields.php:275
+#: inc/render-fields.php:280
 msgid "Re-animate when items enter viewport"
 msgstr ""
 
-#: inc/render-fields.php:276
+#: inc/render-fields.php:281
 msgid "Animate items on hover/touch"
 msgstr ""

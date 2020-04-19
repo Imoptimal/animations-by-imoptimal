@@ -33,3 +33,6 @@ Updated the sanitization of user input in the meta section.
 
 = 1.7.2 =
 Set the default plugin values upon activation.
+
+= 1.7.3 =
+Added F.A.Q.

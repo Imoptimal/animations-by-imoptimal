@@ -35,8 +35,9 @@ if(!function_exists('imoanim_options_page')) {
             <?php 
         settings_fields( 'imoanim_meta_group' );
                                  do_settings_sections( 'imoanim_meta_group' );
-                                 submit_button(esc_html('Save meta options', 'imoptimal_animation'));
+                                submit_button(esc_html('Save meta options', 'imoptimal_animation'), 'submit-class', 'submit', true, array('id' => 'submit-meta'));
             ?>
+            <div class="meta-notice notice"></div>
             <div class="meta-border-bottom"><span><?php esc_html_e('Animation Options', 'imoptimal_animation') ?></span></div>
         </form>
 
@@ -44,8 +45,9 @@ if(!function_exists('imoanim_options_page')) {
             <?php 
                 settings_fields( 'imoanim_animations_group' );
                                  do_settings_sections( 'imoanim_animations_group' );
-                                 submit_button(esc_html('Save animation options', 'imoptimal_animation'));
+                                submit_button(esc_html('Save animation options', 'imoptimal_animation'), 'submit-class', 'submit', true, array('id' => 'submit-animations'));
             ?>
+            <div class="animations-notice notice"></div>
             <div class="animations-border-bottom"></div>
         </form>
 

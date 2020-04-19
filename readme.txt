@@ -2,7 +2,7 @@
 Contributors: imoptimal
 Tags: animate, animation, animate.css, CSS animation, on scroll animation, jquery, viewport
 Requires at least: 4.9.8
-Tested up to: 5.3.2
+Tested up to: 5.4.0
 Requires PHP: 5.6
 Stable tag: trunk.
 License: GPLv3 or later
@@ -37,6 +37,10 @@ Alternatively:
 4. Set your options from the Settings -> 'Animations by Imoptimal' admin area
 
 == Frequently Asked Questions ==
+
+= What if I don't know how to find out what is the selector (id, class or tag) of an element that I wish to target with the animation settings? =
+
+I would suggest using a plugin called 'SiteOrigin CSS' which allows you to easily hover over the page elements of your website and determine the right CSS selectors that you need. That plugin is also useful for styling your entire website without any knowledge of coding.
 
 == Screenshots ==
 
@@ -80,6 +84,9 @@ Updated the sanitization of user input in the meta section.
 
 = 1.7.2 =
 Set the default plugin values upon activation.
+
+= 1.7.3 =
+Added F.A.Q.
 
 == Copyright ==
 

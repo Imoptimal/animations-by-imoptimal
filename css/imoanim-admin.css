@@ -260,7 +260,7 @@
     animation-timing-function: linear;
 }
 
-.imo-content #submit {
+.imo-content .submit-class {
     color: #34ab00;
     background-color: #061228;
     border: none;
@@ -290,7 +290,7 @@
     transition: all 0.2s;
 }
 
-.imo-content #submit:hover,
+.imo-content .submit-class:hover,
 .imo-content .rating .button:hover,
 .imo-content .contact-info .button:hover {
     color: #061228;
