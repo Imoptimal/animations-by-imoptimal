@@ -61,7 +61,7 @@ if(!function_exists('imoanim_options_page')) {
                     <strong><?php esc_html_e('rating', 'imoptimal_animation'); ?></strong><br>
                     <strong><?php esc_html_e('A huge thanks in advance!', 'imoptimal_animation'); ?></strong>
                 </p>
-                <a href="https://wordpress.org/plugins/" target="_blank" class="button button-primary"><?php esc_html_e('Leave us a rating', 'imoptimal_animation'); ?></a>
+                <a href="https://wordpress.org/support/plugin/animations-by-imoptimal/reviews/" target="_blank" class="button button-primary"><?php esc_html_e('Leave us a rating', 'imoptimal_animation'); ?></a>
             </div>
 
             <div class="meta-info">
@@ -72,7 +72,7 @@ if(!function_exists('imoanim_options_page')) {
                     <strong><?php esc_html_e('Need some support?', 'imoptimal_animation'); ?></strong> <br>
                     <strong><?php esc_html_e('Contact the developers via the Support Forum', 'imoptimal_animation'); ?></strong>
                     <div>
-                        <a href="https://wordpress.org/support/plugin/" target="_blank" class="button button-primary"><?php esc_html_e('Contact us', 'imoptimal_animation'); ?></a>
+                        <a href="https://wordpress.org/support/plugin/animations-by-imoptimal/" target="_blank" class="button button-primary"><?php esc_html_e('Contact us', 'imoptimal_animation'); ?></a>
                     </div>
                 </div>
             </div>

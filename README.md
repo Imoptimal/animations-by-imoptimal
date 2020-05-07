@@ -36,3 +36,6 @@ Set the default plugin values upon activation.
 
 = 1.7.3 =
 Added F.A.Q.
+
+= 1.7.4 =
+Added support and review links on the plugin settings page.

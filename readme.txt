@@ -2,7 +2,7 @@
 Contributors: imoptimal
 Tags: animate, animation, animate.css, CSS animation, on scroll animation, jquery, viewport
 Requires at least: 4.9.8
-Tested up to: 5.4.0
+Tested up to: 5.4.1
 Requires PHP: 5.6
 Stable tag: trunk.
 License: GPLv3 or later
@@ -87,6 +87,9 @@ Set the default plugin values upon activation.
 
 = 1.7.3 =
 Added F.A.Q.
+
+= 1.7.4 =
+Added support and review links on the plugin settings page.
 
 == Copyright ==
 
