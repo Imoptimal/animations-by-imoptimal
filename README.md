@@ -39,3 +39,6 @@ Added F.A.Q.
 
 = 1.7.4 =
 Added support and review links on the plugin settings page.
+
+= 1.7.5 =
+Moved the user-facing css code into the javascript file.

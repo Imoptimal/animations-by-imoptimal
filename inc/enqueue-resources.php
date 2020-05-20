@@ -5,8 +5,8 @@ add_action('wp_enqueue_scripts', 'imoanim_public_resources');
 if(!function_exists('imoanim_public_resources')) {
     function imoanim_public_resources() {
 
-        wp_register_script('imoanim-public-script', plugin_dir_url( __FILE__ ) . '../js/imoanim-public.js', array('jquery'), true);
-        wp_register_script('imoanim-public-script-min', plugin_dir_url( __FILE__ ) . '../js/imoanim-public-min.js', array('jquery'), true);
+        wp_register_script('imoanim-public-script', plugin_dir_url( __FILE__ ) . '../js/imoanim-public.js', array('jquery'), false);
+        wp_register_script('imoanim-public-script-min', plugin_dir_url( __FILE__ ) . '../js/imoanim-public-min.js', array('jquery'), false);
         
         // Passing php option variables into the javascript
         $defaultEmptyArray = array();
@@ -60,12 +60,10 @@ if(!function_exists('imoanim_public_resources')) {
         if ($optionsMeta == 1) { // if minified selected
 
             wp_enqueue_script('imoanim-public-script-min');
-            wp_enqueue_style( 'imoanim-public-style-min', plugin_dir_url( __FILE__ ) . '../css/imoanim-public-min.css', array());
 
         } else { // not minified
 
             wp_enqueue_script('imoanim-public-script');
-            wp_enqueue_style( 'imoanim-public-style', plugin_dir_url( __FILE__ ) . '../css/imoanim-public.css', array());
 
         }
 
