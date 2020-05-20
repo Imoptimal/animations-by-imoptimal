@@ -3,7 +3,7 @@
    Plugin Name: Animations by Imoptimal
    Plugin URI: https://github.com/Imoptimal/animations-by-imoptimal
    Description: Make anything on your website animate either when its entering the screens viewport or when its hovered on/tapped on touchscreen (using CSS selectors). It includes more than 70 types of animation (from animate.css library), and provides option to set the animation duration, number of repetitions, speed curve, delay, as well as the option to trigger animation repeatedly every time the selected items enter screens viewport.
-   Version: 1.7.5
+   Version: 1.7.7
    Author: imoptimal
    Author URI: https://www.imoptimal.com/
    Requires at least: 4.9.8

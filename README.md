@@ -42,3 +42,9 @@ Added support and review links on the plugin settings page.
 
 = 1.7.5 =
 Moved the user-facing css code into the javascript file.
+
+= 1.7.6 =
+Reverting back. Loading screen messed up without css files.
+
+= 1.7.7 =
+Reverting to the 1.7.5 version.
