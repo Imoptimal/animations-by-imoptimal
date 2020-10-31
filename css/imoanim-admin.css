@@ -27,7 +27,7 @@
 
 .imo-wrap .imo-logo {
     display: inline-block;
-    width: 120px;
+    width: 90px;
     height: 70px;
     background-image: url("../img/imoptimal-logo-white.png");
     background-repeat: no-repeat;
@@ -73,13 +73,13 @@
 }
 
 .imo-wrap .imo-instructions:hover .pointer::before {
-    content: "⬇️";
+    content: "-";
     color: #061228;
     background-color: #34ab00;
 }
 
 .imo-wrap .imo-instructions.active:hover .pointer::before {
-    content: "⬆️";
+    content: "-";
 }
 
 .imo-wrap ol {
@@ -169,7 +169,7 @@
 }
 
 .imo-content .imo-collapsible:hover .collapsible-icon::after {
-    content: "⬇️";
+    content: "-";
 }
 
 .imo-content .imo-collapsible.active .collapsible-icon::after {
@@ -177,7 +177,7 @@
 }
 
 .imo-content .imo-collapsible.active:hover .collapsible-icon::after {
-    content: "⬆️";
+    content: "-";
 }
 
 .imo-content .imo-info {

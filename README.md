@@ -52,3 +52,6 @@ Reverting back. Loading screen messed up without css files.
 
 = 1.7.7 =
 Reverting to the 1.7.5 version.
+
+= 1.7.8 =
+Plugin assets updated.
